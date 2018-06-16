@@ -1,5 +1,3 @@
-#from termcolor import colored
-
 def draw_board(board):
     print("\033[35m----------------------------------------------------------------------------")
     for i in range(10):
