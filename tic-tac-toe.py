@@ -1,7 +1,6 @@
 def draw_board(board):
     print("\033[35m----------------------------------------------------------------------------")
-    for i in range(10):
-        
+    for i in range(10):     
         if i == 0:
             print ("| ", board[0+i*10], "  | ", board[1+i*10], "  | ", board[2+i*10], " |", board[3+i*10], "  | ", board[4+i*10], "  | ", board[5+i*10], "  | ", board[6+i*10], "  | ", board[7+i*10], "  | ", board[8+i*10], "  | ", board[8+i*10], "  | ", board[9+i*10], " | ")
         elif i == 9:
@@ -9,8 +8,6 @@ def draw_board(board):
         else:
             print ("| ", board[0+i*10], " | ", board[1+i*10], " | ", board[2+i*10], "|", board[3+i*10], " | ", board[4+i*10], " | ", board[5+i*10], " | ", board[6+i*10], " | ", board[7+i*10], " | ", board[8+i*10], " | ", board[8+i*10], " | ", board[9+i*10], " | ")
         print ("----------------------------------------------------------------------------")
-        
-
 
 
 def take_input(player_token):
