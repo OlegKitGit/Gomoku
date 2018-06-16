@@ -10,6 +10,12 @@ def draw_board(board):
         print ("----------------------------------------------------------------------------")
 
 
+def history(player_token, player_answer):
+    with open('history.txt', 'a') as f:
+                line = player_token + ' ' + str(player_answer) + '\n'
+                f.write(line)
+
+
 def take_input(player_token):
     global escape
     valid = False
@@ -31,6 +37,7 @@ def take_input(player_token):
                 else:
                     board[player_answer-1] = '\033[32m' + player_token + '\033[35m' + ' '
                 valid = True
+                history(player_token, player_answer)
             else:
                 print("This cell is already taken")
         else:
@@ -58,6 +65,7 @@ def main(board):
     counter = 0
     win = False
     escape = False
+    open('history.txt', 'w').close()
     while not win:
         draw_board(board)
         if counter % 2 == 0:
