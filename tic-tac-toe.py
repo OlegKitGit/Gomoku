@@ -1,13 +1,13 @@
 def draw_board(board):
-    print("\033[35m----------------------------------------------------------------------------")
+    print("\033[35m---------------------------------------------------------------------")
     for i in range(10):     
         if i == 0:
-            print ("| ", board[0+i*10], "  | ", board[1+i*10], "  | ", board[2+i*10], " |", board[3+i*10], "  | ", board[4+i*10], "  | ", board[5+i*10], "  | ", board[6+i*10], "  | ", board[7+i*10], "  | ", board[8+i*10], "  | ", board[8+i*10], "  | ", board[9+i*10], " | ")
+            print ("| ", board[0+i*10], "  | ", board[1+i*10], "  | ", board[2+i*10], " |", board[3+i*10], "  | ", board[4+i*10], "  | ", board[5+i*10], "  | ", board[6+i*10], "  | ", board[7+i*10], "  | ", board[8+i*10], "  | ", board[9+i*10], " | ")
         elif i == 9:
-            print ("| ", board[0+i*10], " | ", board[1+i*10], " | ", board[2+i*10], "|", board[3+i*10], " | ", board[4+i*10], " | ", board[5+i*10], " | ", board[6+i*10], " | ", board[7+i*10], " | ", board[8+i*10], " | ", board[8+i*10], " | ", board[9+i*10], "| ")
+            print ("| ", board[0+i*10], " | ", board[1+i*10], " | ", board[2+i*10], "|", board[3+i*10], " | ", board[4+i*10], " | ", board[5+i*10], " | ", board[6+i*10], " | ", board[7+i*10], " | ", board[8+i*10], " | ", board[9+i*10], "| ")
         else:
-            print ("| ", board[0+i*10], " | ", board[1+i*10], " | ", board[2+i*10], "|", board[3+i*10], " | ", board[4+i*10], " | ", board[5+i*10], " | ", board[6+i*10], " | ", board[7+i*10], " | ", board[8+i*10], " | ", board[8+i*10], " | ", board[9+i*10], " | ")
-        print ("----------------------------------------------------------------------------")
+            print ("| ", board[0+i*10], " | ", board[1+i*10], " | ", board[2+i*10], "|", board[3+i*10], " | ", board[4+i*10], " | ", board[5+i*10], " | ", board[6+i*10], " | ", board[7+i*10], " | ", board[8+i*10], " | ", board[9+i*10], " | ")
+        print ("---------------------------------------------------------------------")
 
 
 def history(player_token, player_answer):
@@ -27,6 +27,12 @@ def take_input(player_token):
             if player_answer == 'exit':
                 escape = True
                 break
+            if player_answer == 'history':
+                print('\n')
+                with open('history.txt', 'r') as f:
+                    for line in f.readlines():
+                        print(line)
+                continue 
             print("Invalid input. Are you sure that you entered a number?")
             continue
         if player_answer >= 1 and player_answer <= 100:
@@ -44,8 +50,7 @@ def take_input(player_token):
             print("Invalid input. Enter a number from 1 to 9.")
 
 
-def check_win(board):
-    a = board
+def check_win(a):
     for i in range(10):
         for j in range(6):
             if str(a[j+i*10]).strip() == str(a[j+1+i*10]).strip() == str(a[j+2+i*10]).strip() == str(a[j+3+i*10]).strip() == str(a[j+4+i*10]).strip():
