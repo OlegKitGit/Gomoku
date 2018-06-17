@@ -4,7 +4,8 @@ board = list(range(1,101))
 counter = 0
 win = False
 escape = False
-open('history.txt', 'w').close()
+with open('history.txt', 'a') as f:
+        f.close()
 while not win:
 	Tic_tac_toe.draw_board(board)
 	if counter % 2 == 0:
