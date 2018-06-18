@@ -47,7 +47,7 @@ class Tic_tac_toe:
                     continue
                 print("Invalid input. Are you sure that you entered X,X?")
                 continue
-            if player_answer_list[0] >= 2 and player_answer_list[0] < 11 and player_answer_list[1] >= 2 and player_answer_list[1] < 10:
+            if player_answer_list[0] >= 1 and player_answer_list[0] < 11 and player_answer_list[1] >= 1 and player_answer_list[1] < 10:
                 val = str(board[player_answer_list[0] + player_answer_list[1]*10 - 1]).strip()
                 if (val != '\033[32mO\033[35m' and val != '\033[32mX\033[35m'):
                     board[player_answer_list[0] + player_answer_list[1]*10 - 1] = '\033[32m' + player_token + '\033[35m' + ' '
@@ -56,20 +56,22 @@ class Tic_tac_toe:
                 else:
                     print("This cell is already taken")
             else:
-                print("Invalid input. Enter a number from 1 to 9.")
+                print("Invalid input. Enter a number from (1 to 10, 1 to 10)")
         return False
 
     def check_win(a):
         for i in range(10):
             for j in range(6):
-                if str(a[j+i*10]).strip() == str(a[j+1+i*10]).strip() == str(a[j+2+i*10]).strip() == str(a[j+3+i*10]).strip() == str(a[j+4+i*10]).strip():
+                if str(a[j+i*10]).strip() == str(a[j+1+i*10]).strip() == str(a[j+2+i*10]).strip() == str(a[j+3+i*10]).strip() == str(a[j+4+i*10]).strip() == ('\033[32mO\033[35m' or '\033[32mX\033[35m'):
                     return a[j+i*10]
-                elif str(a[i+j*10]).strip() == str(a[i+(j+1)*10]).strip() == str(a[i+(j+2)*10]).strip() == str(a[i+(j+3)*10]).strip() == str(a[i+(j+4)*10]).strip():
+                elif str(a[i+j*10]).strip() == str(a[i+(j+1)*10]).strip() == str(a[i+(j+2)*10]).strip() == str(a[i+(j+3)*10]).strip() == str(a[i+(j+4)*10]).strip() == ('\033[32mO\033[35m' or '\033[32mX\033[35m'):
                     return a[i+j*10]
-                elif str(a[i+j*10]).strip() == str(a[i+1+(j+1)*10]).strip() == str(a[i+2+(j+2)*10]).strip() == str(a[i+3+(j+3)*10]).strip() == str(a[i+4+(j+4)*10]).strip():
+        for j in range(6):
+            for i in range(6):
+                if str(a[i+j*10]).strip() == str(a[i+1+(j+1)*10]).strip() == str(a[i+2+(j+2)*10]).strip() == str(a[i+3+(j+3)*10]).strip() == str(a[i+4+(j+4)*10]).strip() == ('\033[32mO\033[35m' or '\033[32mX\033[35m'):
                     return a[i+j*10]
         for i in range(6):
             for j in list(reversed(range(4, 10))):
-                if str(a[j+i*10]).strip() == str(a[(j-1)+(i+1)*10]).strip() == str(a[(j-2)+(i+2)*10]).strip() == str(a[(j-3)+(i+3)*10]).strip() == str(a[(j-4)+(4+i)*10]).strip():
+                if str(a[j+i*10]).strip() == str(a[(j-1)+(i+1)*10]).strip() == str(a[(j-2)+(i+2)*10]).strip() == str(a[(j-3)+(i+3)*10]).strip() == str(a[(j-4)+(4+i)*10]).strip() == ('\033[32mO\033[35m' or '\033[32mX\033[35m'):
                     return a[j+i*10]
         return False
