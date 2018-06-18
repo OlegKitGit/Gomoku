@@ -1,13 +1,14 @@
 class Tic_tac_toe:
 
     def draw_board(board, counter):
-        for i in range(10):
-            for j in range(10):
-                if i > 0 and j > 0 and counter == 0:
-                    board[j+i*10] = '  '
-                elif j == 0:
-                    board[j+i*10] = i
-                    board[0] = 1
+        if counter == 0:
+            for i in range(10):
+                for j in range(10):
+                    if i > 0 and j > 0:
+                        board[j+i*10] = '  '
+                    elif j == 0:
+                        board[j+i*10] = i
+            board[0] = 1
         print("\033[35m---------------------------------------------------------------------")
         for i in range(10):     
             if i == 0:
