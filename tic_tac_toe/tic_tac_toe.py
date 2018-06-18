@@ -7,6 +7,7 @@ class Tic_tac_toe:
                     board[j+i*10] = '  '
                 elif j == 0:
                     board[j+i*10] = i
+                    board[0] = 1
         print("\033[35m---------------------------------------------------------------------")
         for i in range(10):     
             if i == 0:
