@@ -6,7 +6,7 @@ escape = False
 with open('history.txt', 'a') as f:
         f.close()
 while not win:
-	Tic_tac_toe.draw_board(board)
+	Tic_tac_toe.draw_board(board, counter)
 	if counter % 2 == 0:
 			escape = Tic_tac_toe.take_input("X", board)
 	else:
@@ -22,7 +22,7 @@ while not win:
 			win = True
 			break
 	if counter == 100:
-		Tic_tac_toe.draw_board(board)
+		Tic_tac_toe.draw_board(board, counter)
 		print("Draw!")
 		break
    
