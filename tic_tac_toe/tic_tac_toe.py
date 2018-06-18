@@ -20,7 +20,6 @@ class Tic_tac_toe:
         print('\nIn order to win you need to put in a row five tokens\n')
     
     def take_input(player_token, board):
-        global escape
         valid = False
         while not valid:
             player_answer = input("\033[37mWhere to put " + player_token+"? ")
@@ -28,7 +27,7 @@ class Tic_tac_toe:
                 player_answer = int(player_answer)
             except:
                 if player_answer == 'exit':
-                    escape = True
+                    return True
                     break
                 if player_answer == 'history':
                     print('\n')
@@ -54,6 +53,7 @@ class Tic_tac_toe:
                     print("This cell is already taken")
             else:
                 print("Invalid input. Enter a number from 1 to 9.")
+        return False
 
     def check_win(a):
         for i in range(10):
