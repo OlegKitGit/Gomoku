@@ -8,16 +8,16 @@ with open('history.txt', 'a') as f:
 while not win:
 	Tic_tac_toe.draw_board(board, counter)
 	if counter % 2 == 0:
-			escape = Tic_tac_toe.take_input("X", board)
+                escape = Tic_tac_toe.take_input("X", board)
 	else:
-			escape = Tic_tac_toe.take_input("O", board)
+		escape = Tic_tac_toe.take_input("O", board)
 	if escape == True:
 		break
 	counter += 1
 	if counter > 8:
 		tmp = Tic_tac_toe.check_win(board)
 		if tmp:
-			Tic_tac_toe.draw_board(board)
+			Tic_tac_toe.draw_board(board, counter)
 			print(tmp, "Win!")
 			win = True
 			break
