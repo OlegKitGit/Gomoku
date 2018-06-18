@@ -1,4 +1,4 @@
-from tic_tac_toe.tic_tac_toe import Tic_tac_toe
+from gomoku.gomoku import Gomoku
 board = list(range(1,101))
 counter = 0
 win = False
@@ -6,23 +6,23 @@ escape = False
 with open('history.txt', 'w') as f:
         f.close()
 while not win:
-	Tic_tac_toe.draw_board(board, counter)
+	Gomoku.draw_board(board, counter)
 	if counter % 2 == 0:
-                escape = Tic_tac_toe.take_input("X", board)
+                escape = Gomoku.take_input("X", board)
 	else:
-		escape = Tic_tac_toe.take_input("O", board)
+		escape = Gomoku.take_input("O", board)
 	if escape == True:
 		break
 	counter += 1
 	if counter > 8:
-		tmp = Tic_tac_toe.check_win(board)
+		tmp = Gomoku.check_win(board)
 		if tmp:
-			Tic_tac_toe.draw_board(board, counter)
+			Gomoku.draw_board(board, counter)
 			print(tmp, "Win!")
 			win = True
 			break
 	if counter == 100:
-		Tic_tac_toe.draw_board(board, counter)
+		Gomoku.draw_board(board, counter)
 		print("Draw!")
 		break
    
